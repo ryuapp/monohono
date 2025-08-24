@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "dev": "deno serve --watch main.tsx"
+  },
+  "imports": {
+    "hono": "npm:hono@^4.9.4",
+    "mono-jsx": "npm:mono-jsx@^0.6.11"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "mono-jsx"
+  }
+}

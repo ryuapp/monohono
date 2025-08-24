@@ -1,0 +1,29 @@
+{
+  "version": "5",
+  "specifiers": {
+    "npm:hono@^4.9.4": "4.9.4",
+    "npm:mono-jsx@~0.6.11": "0.6.11"
+  },
+  "npm": {
+    "hono@4.9.4": {
+      "integrity": "sha512-61hl6MF6ojTl/8QSRu5ran6GXt+6zsngIUN95KzF5v5UjiX/xnrLR358BNRawwIRO49JwUqJqQe3Rb2v559R8Q=="
+    },
+    "mono-jsx@0.6.11": {
+      "integrity": "sha512-CupNC1EmSSb7ryt8aGNrSW1SfKJhDkahbYFhJdiv983plOZczoBbnJwcfgb7KzJbycc77+maF83KuhirTpm+dg==",
+      "bin": true
+    }
+  },
+  "redirects": {
+    "https://esm.sh/mono-jsx/jsx-runtime": "https://esm.sh/mono-jsx@0.6.11/jsx-runtime"
+  },
+  "remote": {
+    "https://esm.sh/mono-jsx@0.6.11/denonext/jsx-runtime.mjs": "713ba78140ca1c3a455f26be57a57d060da205a777dcb62e120210cc1efad3db",
+    "https://esm.sh/mono-jsx@0.6.11/jsx-runtime": "36a0c948f9ba10f9a2ef542bbffca0a1d881fbf068c5b230eae7b2d2d2302634"
+  },
+  "workspace": {
+    "dependencies": [
+      "npm:hono@^4.9.4",
+      "npm:mono-jsx@~0.6.11"
+    ]
+  }
+}
