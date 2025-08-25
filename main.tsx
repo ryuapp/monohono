@@ -2,18 +2,21 @@ import { Hono } from "hono";
 
 const app = new Hono();
 
-function Layout(this: FC) {
-  return (
-    <>
-      <head>
-        <title>mono-jsx x Hono</title>
-      </head>
-      <body>
-        <slot />
-      </body>
-    </>
-  );
-}
+app.use(async (c, next) => {
+  c.setRenderer(async (content) => {
+    return (
+      <html>
+        <head>
+          <title>mono-jsx x Hono</title>
+        </head>
+        <body>
+          {await content}
+        </body>
+      </html>
+    );
+  });
+  await next();
+});
 
 function Counter(
   this: FC<{ count: number }>,
@@ -30,21 +33,8 @@ function Counter(
   );
 }
 
-app.get("/", () => {
-  return (
-    <Layout>
-      <Counter initialCount={0} />
-    </Layout>
-  );
+app.get("/", (c) => {
+  return c.render(<Counter initialCount={0} /> as unknown as string);
 });
 
-export default {
-  fetch: async (req: Request) => {
-    const res = await app.fetch(req);
-    if (!(res instanceof Response)) {
-      // @ts-ignore Skip types
-      return <html>{res}</html>;
-    }
-    return res;
-  },
-};
+export default app;
