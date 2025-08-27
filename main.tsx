@@ -3,14 +3,14 @@ import { Hono } from "hono";
 const app = new Hono();
 
 app.use(async (c, next) => {
-  c.setRenderer(async (content) => {
+  c.setRenderer((content) => {
     return (
       <html>
         <head>
           <title>mono-jsx x Hono</title>
         </head>
         <body>
-          {await content}
+          {content}
         </body>
       </html>
     );
@@ -34,7 +34,7 @@ function Counter(
 }
 
 app.get("/", (c) => {
-  return c.render(<Counter initialCount={0} /> as unknown as string);
+  return c.render(<Counter initialCount={0} />);
 });
 
 export default app;
